@@ -13,7 +13,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>UserID: {data?.data?.metadata?.pagination?.page}</p>
+        {
+          data?.data?.items?.map((res: any) =>(
+            <div key={res?.game_id}>
+              <p>{res?.uaw_7d}</p>
+            </div>
+          ))
+        }
       </header>
     </div>
   );
