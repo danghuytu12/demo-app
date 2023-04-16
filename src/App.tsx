@@ -7,16 +7,13 @@ const test = process.env.REACT_APP_API_PUBLIC
 function App() {
   const [data, setData] = useState<any>()
   useEffect(() => {
-    axios.get(`${test}/todos/1`).then((res) => setData(res.data))
+    axios.get(`${test}/leaderboards/top-uaw?time_frame=24h&sort=uaw&limit=30&with_time_series=true&all=false`).then((res) => setData(res.data))
   }, [])
   console.log(data)
   return (
     <div className="App">
       <header className="App-header">
-        <p>UserID: {data.id}</p>
-        <p>Completed: {data.completed}</p>
-        <p>Title: {data.title}</p>
-        <p>ID: {data.userId}</p>
+        <p>UserID: {data?.data?.metadata?.pagination?.page}</p>
       </header>
     </div>
   );
