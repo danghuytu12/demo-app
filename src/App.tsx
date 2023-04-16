@@ -14,7 +14,7 @@ function App() {
         {
           data?.data?.items?.map((res: any) =>(
             <div key={res?.game_id}>
-              <p>{res?.uaw_7d}</p>
+              <p>{res?.uaw_7d_rank}</p>
             </div>
           ))
         }
