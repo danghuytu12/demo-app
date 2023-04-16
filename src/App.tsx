@@ -2,12 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-const test = process.env.REACT_APP_API_PUBLIC
-
 function App() {
   const [data, setData] = useState<any>()
   useEffect(() => {
-    axios.get(`${test}/leaderboards/top-uaw?time_frame=24h&sort=uaw&limit=30&with_time_series=true&all=false`).then((res) => setData(res.data))
+    axios.get(`${process.env.REACT_APP_API_PUBLIC}/leaderboards/top-uaw?time_frame=24h&sort=uaw&limit=30&with_time_series=true&all=false`).then((res) => setData(res.data))
   }, [])
   console.log(data)
   return (
